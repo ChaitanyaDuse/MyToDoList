@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:listPreferredItemHeightSmall"
+    android:divider="?android:dividerVertical"
+
+    android:dividerPadding="8dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:showDividers="middle">
+
+    <CheckBox
+        android:id="@+id/chk_to_do_is_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:padding="10dp" />
+    <!-- Dummy text view that will display the name of a random country. -->
+    <TextView
+        android:id="@+id/tv_to_do_text"
+        style="?android:textAppearanceMedium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:paddingLeft="?android:listPreferredItemPaddingLeft"
+        tools:text="To do item" />
+
+</LinearLayout>
