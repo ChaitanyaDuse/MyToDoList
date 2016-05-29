@@ -75,5 +75,10 @@ public class ListManager {
         mSqlHelper.updateToDoItem(toDoListItem);
     }
 
+    private void updateItemWithReminder(ToDoListItem toDoListItem)
+    {
+        mSqlHelper.updateToDoItem(toDoListItem);
+    }
+
 
 }

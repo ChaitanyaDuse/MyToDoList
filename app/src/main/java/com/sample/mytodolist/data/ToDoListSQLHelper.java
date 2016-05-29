@@ -82,8 +82,9 @@ public class ToDoListSQLHelper extends SQLiteOpenHelper {
     public void updateToDoItem(ToDoListItem toDoListItem) {
         ContentValues values = new ContentValues();
         values.put(DbSchema.lists_table.cols.LIST_TITLE, toDoListItem.getText());
+        values.put(DbSchema.lists_table.cols.LIST_ITEM_ALARM_WHEN, toDoListItem.getmAlarmDttm());
+        values.put(DbSchema.lists_table.cols.LIST_ITEM_IS_ALARM, toDoListItem.isReminderAlarmSet());
         SQLiteDatabase db = this.getWritableDatabase();
-
         db.update(DbSchema.lists_table.NAME,
                 values,
                 DbSchema.lists_table.cols.LIST_ID + "= " + toDoListItem.getListId(), null
