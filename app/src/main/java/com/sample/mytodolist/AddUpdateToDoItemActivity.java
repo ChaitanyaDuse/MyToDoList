@@ -65,7 +65,7 @@ public class AddUpdateToDoItemActivity extends BaseActivity implements View.OnCl
         btn_todo_delete.setOnClickListener(this);
         btn_add_remove_alarm.setOnClickListener(this);
 
-        getApplicationContext().getString(R.string.btn_label_save_alarm);
+
 
         if (getIntent().getSerializableExtra(MainActivity.TO_DO_ITEM_BUNDLE) != null) {
             toDoListItem = (ToDoListItem) getIntent().getSerializableExtra(MainActivity.TO_DO_ITEM_BUNDLE);
@@ -218,11 +218,11 @@ public class AddUpdateToDoItemActivity extends BaseActivity implements View.OnCl
     }
 
     private PendingIntent getAlarmPendingIntent(ToDoListItem toDoListItem) {
-        Intent myIntent = new Intent(getApplicationContext(), AlarmReceiver.class);
+        Intent myIntent = new Intent(getApplicationContext(), Alset.class);
         Bundle bundle = new Bundle();
-        bundle.putString("notification", toDoListItem.getText());
+        bundle.putString("notification", "Wake up sid");
         myIntent.putExtras(bundle);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), toDoListItem.getListId(),
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0,
                 myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         return pendingIntent;
     }

@@ -144,13 +144,6 @@ public class MainActivity extends BaseActivity {
     }
 
     public void unsetAlarm() {
-        Intent myIntent = new Intent(MainActivity.this, AlarmService.class);
-        PendingIntent notifyIntent = PendingIntent.getService(MainActivity.this, 0,
-                myIntent, PendingIntent.FLAG_UPDATE_CURRENT);  // recreate it here before calling cancel
-
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-        alarmManager.cancel(notifyIntent);
 
         Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         if (alarmUri == null) {
@@ -158,6 +151,16 @@ public class MainActivity extends BaseActivity {
         }
         Ringtone ringtone = RingtoneManager.getRingtone(getApplicationContext(), alarmUri);
         ringtone.stop();
+        Intent myIntent = new Intent(MainActivity.this, AlarmReceiver.class);
+        PendingIntent notifyIntent = PendingIntent.getService(MainActivity.this, 0,
+                myIntent, PendingIntent.FLAG_UPDATE_CURRENT);  // recreate it here before calling cancel
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        alarmManager.cancel(notifyIntent);
+
+
+
 
     }
 }

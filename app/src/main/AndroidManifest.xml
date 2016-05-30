@@ -24,12 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddUpdateToDoItemActivity">
+        <activity android:name=".AddUpdateToDoItemActivity"></activity>
+        <activity android:name=".Alset">
 
         </activity>
-        <service
+      <!--  <service
             android:name=".AlarmService"
-            android:enabled="true" />
+            android:enabled="true" />-->
         <receiver android:name=".AlarmReceiver" />
     </application>
 
